@@ -1,0 +1,34 @@
+integrator              = sd
+dt                      = 0.002
+nsteps                  = 5000000
+
+; Bond constraints
+constraints             = h-bonds
+constraint_algorithm    = lincs
+
+; X/V/F/E outputs
+nstlog                  = 5000
+nstxout                 = 5000
+nstenergy               = 5000
+
+; Non-bonded interactions
+coulombtype             = Cut-off
+vdwtype                 = Cut-off
+rcoulomb                = 3.0
+rvdw                    = 3.0
+rlist                   = 3.0
+dispcorr                = EnerPres
+cutoff-scheme           = Verlet
+vdw-modifier            = Potential-Shift
+
+; Temperature coupling
+Tcoupl                  = v-rescale
+tc-grps                 = System
+tau-t                   = 0.2
+ref-t                   = 298.15
+
+; Generate velocites in the beginning
+continuation            = no
+gen_vel                 = yes
+gen_seed                = -1
+
